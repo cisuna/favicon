@@ -36,7 +36,7 @@ if (!function_exists('favicon'))
      * 
      * @return string the output HTML
      */
-    function favicon($option = FAVICON_ENABLE_ALL, array $msOptions = array())
+    function favicon($option = FAVICON_ENABLE_ALL, array $msOptions = array(), $prefixPath = '')
     {
         $noOldApple        = FAVICON_NO_OLD_APPLE & $option;
         $noAndroid         = FAVICON_NO_ANDROID & $option;
@@ -44,7 +44,7 @@ if (!function_exists('favicon'))
         $tileColor         = strtoupper(isset($msOptions['tile_color']) ? $msOptions['tile_color'] : '#ffffff');
         $browserConfigFile = isset($msOptions['browser_config_file']) ? $msOptions['browser_config_file'] : '';
         $appName           = isset($msOptions['application_name']) ? $msOptions['application_name'] : '';
-        return HieuLe\Favicon\Html::output($noOldApple, $noAndroid, $noMs, $tileColor, $browserConfigFile, $appName);
+        return HieuLe\Favicon\Html::output($noOldApple, $noAndroid, $noMs, $tileColor, $browserConfigFile, $appName, $prefixPath);
     }
 
 }
